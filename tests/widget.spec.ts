@@ -28,4 +28,10 @@ test.describe('Uchi.ru widget ', () => {
 
     await expect(widgetPage.getTitle()).toHaveText("Связь с поддержкой");
   });
+
+  test("checking the href attribute", async ({ page }) => {
+    await expect(
+      page.getByRole("link", { name: "Забыли пароль?" }),
+    ).toHaveAttribute("href", "/forget_password");
+  });
 });
